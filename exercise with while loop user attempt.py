@@ -14,7 +14,6 @@ while tempt<3:
       password=getpass()
 
       R01={'host':'192.168.114.5','username':username,'password':'admin','device_type':'cisco_ios'}
-      R02={'host':'192.168.114.4','username':username,'password':'admin','device_type':'cisco_ios'}
       cmd=ConnectHandler(**R01)
       print (cmd.find_prompt())
       config_cmd=cmd.send_command('show version')

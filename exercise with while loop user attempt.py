@@ -1,7 +1,6 @@
 from netmiko import ConnectHandler
 from getpass import getpass
-import time 
-from datetime import datetime
+
 
 user_list={'Admin':'pwd-admin'}
 tempt=0
@@ -20,7 +19,7 @@ while tempt<3:
       print (config_cmd)
       break
    else:
-      print ("Type Again===>")
+      print ("Type Password Again===>")
       tempt+=1
  
 

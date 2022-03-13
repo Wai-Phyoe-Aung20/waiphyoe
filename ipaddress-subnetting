@@ -1,0 +1,31 @@
+import ipaddress
+
+print ('Calculation Valid IP Address')
+
+try:
+   while True:
+      IP=input('Type any network address [network/prefix] :: ')
+      if '/' not in str(IP):
+         error= '<< Type correct network address again >>'
+         print (error.upper())
+         continue
+      else:
+         netid=ipaddress.ip_network(str(IP))
+         print('IP version number: v'+ str(netid.version))
+         net_mask = netid.with_netmask
+         net_addr = netid.network_address
+         broadcast= netid.broadcast_address
+         print ('valid ip address list >> ')
+         for ip_address in netid.hosts():
+            print (ip_address)
+         print ('==========')
+         print ("Got total IP Address is : ", str(netid.num_addresses))
+         print("But "+ str(len([ip_address for ip_address in netid.hosts()]))+' ip address available for each per network')
+         print('Subnet Mask is : ', net_mask.split('/')[1])
+         print('Network Address is : ', str(net_addr).split('/')[0])
+         print('Braodcast Address is : ', broadcast)
+        
+      
+except ValueError:
+   print ("IP or Network Address is wrong")
+   
